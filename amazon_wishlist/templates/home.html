@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>My Mission</h1>
+        <p>Have you ever wanted to buy something, but didn't have the money? Well so has everybody,
+        so tough luck. How about wanting to catch something on sale, so you could save at least a
+        little? Well that I can help you with. Create an account, add some item, and set a price you
+        can afford, and I'll let you know when amazon gives you that dream discount.</p>
+    </div>
+    {% for item in items %}
+        <div class="container">
+            <h1><a href="{{ url_for('item', item_id=item.id) }}">{{ item.title }}</a></h1>
+            <h4>Price: {{ item.price }}</h4>
+            <h4>Alert Price: {{ item.alert_price }}</h4>
+        </div>
+    {% endfor %}
+{% endblock content %}
